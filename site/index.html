@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Tp ShellShock </title>
+</head>
+<body>
+  <h1>Bienvenue sur l'exercice pour découvrir ShellShock</h1>
+  <h2>Connexion en tant qu'admin</h2>
+  <input id="user" placeholder="Utilisateur">
+  <input id="pass" type="password" placeholder="Mot de passe">
+  <button onclick="checkLogin()">Connexion</button>
+  <p id="result"></p>
+
+  <script>
+    async function checkLogin() {
+      const u = document.getElementById('user').value;
+      const p = document.getElementById('pass').value;
+
+      const res = await fetch('/.hidden/pass.env');
+      const text = await res.text();
+
+      const envUser = text.match(/ADMIN_USER=(.*)/)[1].trim();
+      const envPass = text.match(/ADMIN_PASS=(.*)/)[1].trim();
+
+      document.getElementById('result').innerText =
+        (u === envUser && p === envPass)
+          ? "✅ Accès autorisé. Vous avez reussi le tp !"
+          : "❌ Identifiants incorrects. Réessayez";
+    }
+  </script>
+</body>
+</html>
