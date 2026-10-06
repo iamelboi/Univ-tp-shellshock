@@ -1,5 +1,13 @@
 FROM debian:bookworm
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    apache2 \
+    build-essential \
+    ca-certificates \
+    wget \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
 RUN wget https://mirrors.kernel.org/gnu/bash/bash-4.3.tar.gz \
     && tar xzf bash-4.3.tar.gz \
     && cd bash-4.3 \
