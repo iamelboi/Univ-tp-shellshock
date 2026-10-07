@@ -18,6 +18,7 @@ RUN ln -sf /usr/local/bin/bash /bin/bash
 
 RUN a2enmod cgi
 
+RUN echo 'SetEnv PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin' >> /etc/apache2/apache2.conf
 
 RUN printf '#!/bin/dash\necho "Content-type: text/plain"\necho ""\n/bin/bash -c "echo Vulnerable Server Online."\n' > /usr/lib/cgi-bin/test.sh \
     && chmod +x /usr/lib/cgi-bin/test.sh
