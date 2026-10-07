@@ -7,7 +7,7 @@ RUN wget http://ftp.gnu.org/gnu/bash/bash-4.3.tar.gz \
 
 RUN wget http://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-025 -O bash43-025 \
     && cd bash-4.3 \
-    && patch -p0 < ../bash43-025 \
+    && (patch -p0 < ../bash43-025 || true) \
     && ./configure && make && make install
 
 RUN ln -sf /usr/local/bin/bash /bin/bash
