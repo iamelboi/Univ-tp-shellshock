@@ -29,9 +29,10 @@ Avec la base et la clé, déchiffrez les messages et retrouvez la personne qui p
 Récupérez l'archive `agora-tp.tar.gz`, puis :
 
 ```bash
-gunzip -c agora-tp.tar.gz | docker load
+docker build -t agora-tp .
 docker run --rm -p 3000:3000 -p 8080:80 agora-tp
 ```
+
 
 Le site tourne sur http://localhost:3000.
 
