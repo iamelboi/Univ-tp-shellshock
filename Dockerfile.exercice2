@@ -24,7 +24,7 @@ RUN echo -e '#!/bin/bash\necho "Content-type: text/plain"\necho ""\n/bin/bash --
     && chmod +x /usr/lib/cgi-bin/version.sh
 
 RUN git clone https://github.com/iamelboi/Univ-tp-shellshock /tmp/data \
-    && cp /tmp/data/site/. /var/www/html \
+    && cp -r /tmp/data/site/. /var/www/html \
     && rm -rf /tmp/data
 
 EXPOSE 80
