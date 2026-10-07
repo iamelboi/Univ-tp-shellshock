@@ -15,11 +15,11 @@ RUN bash --version
 
 RUN a2enmod cgi
 
-RUN echo -e '#!/bin/bash\necho "Content-type: text/html"\necho ""\necho "Serveur en ligne (patch CVE-2014-6271 applique)."' \
+RUN printf '#!/bin/bash\necho "Content-type: text/html"\necho ""\necho "Serveur en ligne (patch CVE-2014-6271 applique)."' \
     > /usr/lib/cgi-bin/test.sh \
     && chmod +x /usr/lib/cgi-bin/test.sh
 
-RUN echo -e '#!/bin/bash\necho "Content-type: text/plain"\necho ""\n/bin/bash --version' \
+RUN printf '#!/bin/bash\necho "Content-type: text/plain"\necho ""\n/bin/bash --version' \
     > /usr/lib/cgi-bin/version.sh \
     && chmod +x /usr/lib/cgi-bin/version.sh
 
