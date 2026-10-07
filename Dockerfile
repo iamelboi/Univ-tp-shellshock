@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     ca-certificates \
     wget \
-    git \
+    git
 
 RUN wget https://mirrors.kernel.org/gnu/bash/bash-4.3.tar.gz \
     && tar xzf bash-4.3.tar.gz \
