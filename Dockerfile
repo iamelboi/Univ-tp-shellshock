@@ -20,7 +20,7 @@ RUN a2enmod cgi
 
 RUN echo 'SetEnv PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin' >> /etc/apache2/apache2.conf
 
-RUN printf '#!/bin/dash\necho "Content-type: text/plain"\necho ""\n/bin/bash -c "echo Vulnerable Server Online."\n' > /usr/lib/cgi-bin/test.sh \
+RUN printf '#!/bin/dash\nexport PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\necho "Content-type: text/plain"\necho ""\n/bin/bash -c "echo Vulnerable Server Online."\n' > /usr/lib/cgi-bin/test.sh \
     && chmod +x /usr/lib/cgi-bin/test.sh
 
 RUN git clone https://github.com/iamelboi/Univ-tp-shellshock /tmp/data \
