@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Amis — Agora</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header><nav></nav></header>
+  <main>
+    <h1>Amis</h1>
+
+    <section class="card">
+      <h2>Ajouter un ami</h2>
+      <form id="add-form">
+        <input name="username" placeholder="Nom d'utilisateur exact" maxlength="32" required>
+        <p id="add-error" class="error"></p>
+        <button type="submit">Envoyer la demande</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Demandes reçues</h2>
+      <ul id="incoming" class="list"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Mes amis</h2>
+      <ul id="friends" class="list"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Demandes envoyées</h2>
+      <ul id="outgoing" class="list"></ul>
+    </section>
+  </main>
+  <script src="/js/common.js"></script>
+  <script src="/js/friends.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Posts — Agora</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header><nav></nav></header>
+  <main>
+    <h1>Posts de mes amis</h1>
+
+    <section class="card" hidden>
+      <h2>Nouveau post</h2>
+      <form id="post-form">
+        <input name="title" placeholder="Titre" maxlength="120" required>
+        <textarea name="content" placeholder="Contenu" maxlength="5000" required></textarea>
+        <p id="post-error" class="error"></p>
+        <p id="post-ok" class="success"></p>
+        <button type="submit">Publier</button>
+      </form>
+    </section>
+
+    <section id="posts"></section>
+  </main>
+  <script src="/js/common.js"></script>
+  <script src="/js/posts.js"></script>
+</body>
+</html>

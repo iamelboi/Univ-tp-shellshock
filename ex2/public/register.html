@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inscription — Agora</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header><nav></nav></header>
+  <main class="narrow">
+    <h1>Inscription</h1>
+    <div class="card">
+      <form data-endpoint="/api/register">
+        <label>Nom d'utilisateur <input name="username" autocomplete="username" pattern="[A-Za-z0-9_]{3,32}" title="3 à 32 caractères : lettres, chiffres, _" required></label>
+        <label>Mot de passe <input name="password" type="password" autocomplete="new-password" minlength="8" required></label>
+        <p id="auth-error" class="error"></p>
+        <button type="submit">Créer le compte</button>
+      </form>
+    </div>
+    <p class="muted">Déjà inscrit ? <a href="/login.html">Connexion</a></p>
+  </main>
+  <script src="/js/common.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

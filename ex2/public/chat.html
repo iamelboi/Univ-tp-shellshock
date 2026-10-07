@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chat — Agora</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header><nav></nav></header>
+  <main>
+    <h1>Chat</h1>
+
+    <section class="card">
+      <h2>Nouveau message</h2>
+      <form id="new-form">
+        <select name="recipient" id="new-recipient" required></select>
+        <textarea name="content" placeholder="Votre message" maxlength="2000" required></textarea>
+        <p id="new-error" class="error"></p>
+        <button type="submit">Envoyer</button>
+      </form>
+      <p id="no-friends" class="muted" hidden>Ajoutez des <a href="/friends.html">amis</a> pour pouvoir discuter.</p>
+    </section>
+
+    <div class="messenger">
+      <aside class="card">
+        <h2>Conversations</h2>
+        <ul id="conversations" class="conv-list"></ul>
+      </aside>
+      <section class="card">
+        <h2 id="thread-title" class="muted">Sélectionnez une conversation</h2>
+        <div id="thread" class="thread"></div>
+        <form id="reply-form" hidden>
+          <textarea name="content" placeholder="Répondre…" maxlength="2000" required></textarea>
+          <button type="submit">Envoyer</button>
+        </form>
+      </section>
+    </div>
+  </main>
+  <script src="/js/common.js"></script>
+  <script src="/js/chat.js"></script>
+</body>
+</html>

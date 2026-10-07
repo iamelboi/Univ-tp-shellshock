@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Connexion — Agora</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header><nav></nav></header>
+  <main class="narrow">
+    <h1>Connexion</h1>
+    <div class="card">
+      <form data-endpoint="/api/login">
+        <label>Nom d'utilisateur <input name="username" autocomplete="username" required></label>
+        <label>Mot de passe <input name="password" type="password" autocomplete="current-password" required></label>
+        <p id="auth-error" class="error"></p>
+        <button type="submit">Se connecter</button>
+      </form>
+    </div>
+    <p class="muted">Pas de compte ? <a href="/register.html">Inscription</a></p>
+  </main>
+  <script src="/js/common.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "agora",
+  "version": "1.0.0",
+  "description": "Agora, réseau social minimaliste (amis, posts, chat) pour un TP de sécurité",
+  "main": "server.js",
+  "scripts": {
+    "init-db": "node --env-file=.env db/init.js",
+    "start": "node --env-file=.env server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

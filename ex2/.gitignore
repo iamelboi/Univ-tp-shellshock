@@ -1,0 +1,18 @@
+# Dépendances
+node_modules/
+
+# Base de données générée (recréée par `npm run init-db`)
+db/app.db
+db/app.db-journal
+db/app.db-wal
+db/app.db-shm
+
+# Clé de chiffrement — ne jamais versionner
+.env
+
+# Artefacts d'exfiltration produits pendant le TP
+/app.db
+/app.db.b64
+
+# macOS
+.DS_Store
