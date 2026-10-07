@@ -1,0 +1,36 @@
+FROM debian:bookworm
+
+RUN apt-get update && apt-get install -y apache2 build-essential wget git patch
+
+# Récupère les sources de Bash 4.3
+RUN wget http://ftp.gnu.org/gnu/bash/bash-4.3.tar.gz \
+    && tar xzf bash-4.3.tar.gz
+
+# Récupère UNIQUEMENT le premier patch officiel (bash43-025, 24/09/2014)
+# Ce patch corrige CVE-2014-6271 mais pas CVE-2014-7169 (découverte le lendemain)
+RUN wget http://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-025 -O bash43-025 \
+    && cd bash-4.3 \
+    && patch -p0 < ../bash43-025 \
+    && ./configure && make && make install
+
+RUN ln -sf /usr/local/bin/bash /bin/bash
+RUN bash --version
+
+RUN a2enmod cgi
+
+# Script CGI identique à l'exercice 1
+RUN echo -e '#!/bin/bash\necho "Content-type: text/html"\necho ""\necho "Serveur en ligne (patch CVE-2014-6271 applique)."' \
+    > /usr/lib/cgi-bin/test.sh \
+    && chmod +x /usr/lib/cgi-bin/test.sh
+
+# Script CGI supplémentaire : permet de vérifier à distance la version/patch-level de Bash
+RUN echo -e '#!/bin/bash\necho "Content-type: text/plain"\necho ""\n/bin/bash --version' \
+    > /usr/lib/cgi-bin/version.sh \
+    && chmod +x /usr/lib/cgi-bin/version.sh
+
+RUN git clone https://github.com/iamelboi/Univ-tp-shellshock /tmp/data \
+    && cp /tmp/data/site/. /var/www/html \
+    && rm -rf /tmp/data
+
+EXPOSE 80
+CMD ["apachectl", "-D", "FOREGROUND"]
