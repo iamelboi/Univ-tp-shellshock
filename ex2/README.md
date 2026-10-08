@@ -17,7 +17,7 @@ Vous êtes **Pierre**, un proche qui s'est introduit dans le cercle d'Alice. Vou
 
 Connectez-vous avec ce compte pour commencer à explorer le réseau.
 
-Les messages ne sont pas lisibles directement : ils sont chiffrés. Pour y arriver, vous devez récupérer **deux choses** sur le serveur :
+Les messages ne sont pas lisibles directement : ils sont chiffrés. Pour y arriver, vous devez récupérer **deux choses** sur le serveur (Tout est dans /app du serveur ) :
 
 1. la base de données **SQLite** (`db/app.db`) ;
 2. la **clé de chiffrement**, qui se trouve dans le fichier **`.env`**.
@@ -25,8 +25,6 @@ Les messages ne sont pas lisibles directement : ils sont chiffrés. Pour y arriv
 Avec la base et la clé, déchiffrez les messages et retrouvez la personne qui possède le code.
 
 ## Lancer le site
-
-Récupérez l'archive `agora-tp.tar.gz`, puis :
 
 ```bash
 docker build -t agora-tp .
